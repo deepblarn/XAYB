@@ -4,6 +4,7 @@ import xayb.GUI.Window;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 
 public class Game extends Canvas implements Runnable{
 
@@ -72,8 +73,6 @@ public class Game extends Canvas implements Runnable{
 
         g.setColor(Color.black);
         g.fillRect(0,0, WIDTH, HEIGHT);
-        g.setColor(Color.blue);
-        g.fillRect(0,0,100,100);
 
         g.dispose();
         bs.show();

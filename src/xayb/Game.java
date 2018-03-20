@@ -64,7 +64,7 @@ public class Game extends Canvas implements Runnable{
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
         if (bs ==null){
-            this.createBufferStrategy(3);
+            this.createBufferStrategy(2);
             return;
         }
 
@@ -72,6 +72,8 @@ public class Game extends Canvas implements Runnable{
 
         g.setColor(Color.black);
         g.fillRect(0,0, WIDTH, HEIGHT);
+        g.setColor(Color.blue);
+        g.fillRect(0,0,100,100);
 
         g.dispose();
         bs.show();

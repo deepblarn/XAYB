@@ -1,5 +1,7 @@
 package xayb.handler;
 
+import xayb.Game;
+
 import java.awt.Graphics;
 import java.awt.Color;
 
@@ -12,12 +14,17 @@ public class Player extends GameObject{
     @Override
     public void tick(){
 
+        x += velX;
+        y += velY;
+
+        x = Game.clamp(x, 0, Game.WIDTH);
+
     }
 
     @Override
     public void render(Graphics g){
         g.setColor(Color.blue);
-        g.fillRect(0,0,100,100);
+        g.fillRect(x,y,50,50);
     }
 
 }

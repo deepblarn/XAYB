@@ -3,6 +3,7 @@ package xayb;
 import xayb.GUI.Window;
 import xayb.handler.Handler;
 import xayb.handler.ID;
+import xayb.handler.Input;
 import xayb.handler.Player;
 
 import java.awt.*;
@@ -11,18 +12,23 @@ import java.util.Random;
 
 public class Game extends Canvas implements Runnable{
 
-    private static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+    public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
     private Thread thread;
     private boolean running = false;
 
     private Handler handler;
 
     public Game(){
-        new Window(WIDTH, HEIGHT, "game", this);
 
         handler = new Handler();
 
-        handler.addObject(new Player(100,100, ID.Player));
+        this.addKeyListener(new Input(handler));
+
+        new Window(WIDTH, HEIGHT, "game", this);
+
+
+
+        handler.addObject(new Player(50,50, ID.Player));
     }
 
     public synchronized void start(){
@@ -89,6 +95,16 @@ public class Game extends Canvas implements Runnable{
 
         g.dispose();
         bs.show();
+    }
+    public static int clamp(int var, int min, int max){
+
+        if (var >= max)
+            return var = max;
+        else if(var <= min)
+            return var = min;
+        else
+            return var;
+
     }
 
     public static void main(String args[]){

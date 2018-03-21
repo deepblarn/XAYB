@@ -26,7 +26,9 @@ public class Input extends KeyAdapter{
                 if (key == KeyEvent.VK_A) tempObj.setVelX(-2);
             }
 
+
         }
+        if (key == KeyEvent.VK_ESCAPE) System.exit(1);
     }
 
     public void keyReleased(KeyEvent e){

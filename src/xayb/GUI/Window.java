@@ -4,6 +4,7 @@ package xayb.GUI;
 import java.util.concurrent.*;
 import xayb.Game;
 import xayb.MusicPlayer;
+import xayb.handler.ThreadPool;
 
 import javax.swing.*;
 import java.awt.Canvas;
@@ -12,7 +13,8 @@ import java.awt.Dimension;
 public class Window extends Canvas{
 
     public Window(int width, int height, String title, Game game){
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        ThreadPool pool = new ThreadPool(2);
 
         JFrame frame = new JFrame(title);
 
@@ -29,8 +31,8 @@ public class Window extends Canvas{
 
         MusicPlayer player = new MusicPlayer("oniku-loop-2");
 
-        executor.submit(player);
-        executor.submit(game);
+        pool.addThread(game);
+        pool.addThread(player);
 
     }
 

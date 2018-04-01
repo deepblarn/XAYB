@@ -15,6 +15,8 @@ public class MusicPlayer implements Runnable{
     }
 
     private void playSound(String fileName){
+
+
         try {
             File soundFile = new File(fileName);
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
@@ -24,7 +26,8 @@ public class MusicPlayer implements Runnable{
             clip.open(ais);
             FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             gainControl.setValue(-20);
-            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+
         }catch (Exception e) {
             System.out.println(e);
         }

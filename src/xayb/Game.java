@@ -31,11 +31,6 @@ public class Game extends Canvas implements Runnable{
         handler.addObject(new Player(50,50, ID.Player));
     }
 
-    public synchronized void start(){
-        thread = new Thread(this);
-        thread.start();
-        running=true;
-    }
 
     public synchronized void stop(){
         try {
@@ -47,6 +42,7 @@ public class Game extends Canvas implements Runnable{
     }
 
     public void run(){
+        running=true;
         long lastTime = System.nanoTime();
         double amountTicks = 60.0;
         double ns = 1000000000 / amountTicks;

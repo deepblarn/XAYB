@@ -1,5 +1,6 @@
 package xayb;
 
+import xayb.GUI.Menu;
 import xayb.GUI.Window;
 import xayb.handler.Handler;
 import xayb.handler.ID;
@@ -13,10 +14,17 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable{
 
     public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
-    private Thread thread;
     private boolean running = false;
-
+    private Thread thread;
     private Handler handler;
+    private Menu menu;
+
+    public enum STATE {
+        Menu,
+        Game
+    }
+
+    public STATE gameState = STATE.Game;
 
     public Game(){
 
@@ -25,7 +33,7 @@ public class Game extends Canvas implements Runnable{
         this.addKeyListener(new Input(handler));
 
         new Window(WIDTH, HEIGHT, "XAYB", this);
-
+        menu = new Menu();
 
 
         handler.addObject(new Player(50,50, ID.Player));
@@ -69,10 +77,14 @@ public class Game extends Canvas implements Runnable{
         stop();
     }
 
-    private void tick(){
+    private void tick() {
 
         handler.tick();
-
+        if (gameState == STATE.Menu) {
+            menu.tick();
+        } else {
+            handler.tick();
+        }
     }
 
     private void render(){
@@ -84,10 +96,16 @@ public class Game extends Canvas implements Runnable{
 
         Graphics g = bs.getDrawGraphics();
 
-        g.setColor(Color.black);
-        g.fillRect(0,0, WIDTH, HEIGHT);
+        if (gameState == STATE.Game){
+            g.setColor(Color.black);
+            g.fillRect(0,0, WIDTH, HEIGHT);
 
-        handler.render(g);
+            handler.render(g);
+        }else{
+            menu.render(g);
+        }
+
+
 
         g.dispose();
         bs.show();

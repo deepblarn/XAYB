@@ -1,6 +1,8 @@
 package xayb.handler;
 
 
+import xayb.Game;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 

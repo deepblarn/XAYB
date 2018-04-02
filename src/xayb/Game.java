@@ -24,7 +24,7 @@ public class Game extends Canvas implements Runnable{
         Game
     }
 
-    public STATE gameState = STATE.Game;
+    public static STATE gameState = STATE.Menu;
 
     public Game(){
 
@@ -78,11 +78,9 @@ public class Game extends Canvas implements Runnable{
     }
 
     private void tick() {
-
-        handler.tick();
         if (gameState == STATE.Menu) {
             menu.tick();
-        } else {
+        } else if (gameState == STATE.Game){
             handler.tick();
         }
     }
@@ -90,18 +88,22 @@ public class Game extends Canvas implements Runnable{
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
         if (bs ==null){
-            this.createBufferStrategy(2);
+            this.createBufferStrategy(4);
             return;
         }
 
         Graphics g = bs.getDrawGraphics();
+        ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         if (gameState == STATE.Game){
             g.setColor(Color.black);
             g.fillRect(0,0, WIDTH, HEIGHT);
 
             handler.render(g);
-        }else{
+        }else if (gameState == STATE.Menu){
+            g.setColor(Color.black);
+            g.fillRect(0,0, WIDTH, HEIGHT);
             menu.render(g);
         }
 

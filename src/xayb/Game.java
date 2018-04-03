@@ -24,7 +24,7 @@ public class Game extends Canvas implements Runnable{
         Game
     }
 
-    public static STATE gameState = STATE.Game;
+    public static STATE gameState = STATE.Menu;
 
     public Game(){
 
@@ -117,6 +117,12 @@ public class Game extends Canvas implements Runnable{
             return var = min;
         else
             return var;
+
+    }
+
+    public static boolean isClamp(int var, int min, int max) {
+
+        return var >= max || var <= min;
 
     }
 

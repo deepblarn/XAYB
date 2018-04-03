@@ -24,16 +24,17 @@ public class Game extends Canvas implements Runnable{
         Game
     }
 
-    public static STATE gameState = STATE.Menu;
+    public static STATE gameState = STATE.Game;
 
     public Game(){
 
         handler = new Handler();
+        menu = new Menu(this, handler);
 
         this.addKeyListener(new Input(handler));
+        this.addMouseListener(menu);
 
         new Window(WIDTH, HEIGHT, "XAYB", this);
-        menu = new Menu();
 
 
         handler.addObject(new Player(50,50, ID.Player));
@@ -88,7 +89,7 @@ public class Game extends Canvas implements Runnable{
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
         if (bs ==null){
-            this.createBufferStrategy(4);
+            this.createBufferStrategy(2);
             return;
         }
 
@@ -97,13 +98,10 @@ public class Game extends Canvas implements Runnable{
                 RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         if (gameState == STATE.Game){
-            g.setColor(Color.black);
-            g.fillRect(0,0, WIDTH, HEIGHT);
 
             handler.render(g);
         }else if (gameState == STATE.Menu){
-            g.setColor(Color.black);
-            g.fillRect(0,0, WIDTH, HEIGHT);
+
             menu.render(g);
         }
 

@@ -41,7 +41,7 @@ abstract class GameObject {
         this.velX = velX;
     }
 
-    public int getVelY() {
+    public int getVelY(){
         return velY;
     }
 

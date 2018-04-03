@@ -10,7 +10,6 @@ public class Input extends KeyAdapter{
 
     private Handler handler;
 
-
     public Input(Handler handler){
         this.handler = handler;
     }
@@ -26,6 +25,7 @@ public class Input extends KeyAdapter{
                 if (key == KeyEvent.VK_S) tempObj.setVelY(2);
                 if (key == KeyEvent.VK_D) tempObj.setVelX(2);
                 if (key == KeyEvent.VK_A) tempObj.setVelX(-2);
+                if (key == KeyEvent.VK_E) Game.gameState = Game.STATE.Menu;
             }
 
 

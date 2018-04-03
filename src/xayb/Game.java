@@ -101,7 +101,6 @@ public class Game extends Canvas implements Runnable{
 
             handler.render(g);
         }else if (gameState == STATE.Menu){
-
             menu.render(g);
         }
 

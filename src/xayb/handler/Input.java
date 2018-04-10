@@ -21,16 +21,21 @@ public class Input extends KeyAdapter{
 
             if (tempObj.getId() == ID.Player){
 
-                if (key == KeyEvent.VK_W) tempObj.setVelY(-2);
-                if (key == KeyEvent.VK_S) tempObj.setVelY(2);
-                if (key == KeyEvent.VK_D) tempObj.setVelX(2);
-                if (key == KeyEvent.VK_A) tempObj.setVelX(-2);
-                if (key == KeyEvent.VK_E) Game.gameState = Game.STATE.Menu;
+                if (key == KeyEvent.VK_W) tempObj.setVelY(-5);
+                if (key == KeyEvent.VK_S) tempObj.setVelY(5);
+                if (key == KeyEvent.VK_D) tempObj.setVelX(5);
+                if (key == KeyEvent.VK_A) tempObj.setVelX(-5);
+                if (key == KeyEvent.VK_F) handler.removeObject(tempObj);
+
+
             }
 
-
         }
+
         if (key == KeyEvent.VK_ESCAPE) System.exit(1);
+        if (key == KeyEvent.VK_E) Game.gameState = Game.STATE.Menu;
+
+
     }
 
     public void keyReleased(KeyEvent e){

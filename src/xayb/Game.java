@@ -3,13 +3,11 @@ package xayb;
 import xayb.GUI.Menu;
 import xayb.GUI.Window;
 import xayb.handler.Handler;
-import xayb.handler.ID;
 import xayb.handler.Input;
-import xayb.handler.Player;
+
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.util.Random;
 
 public class Game extends Canvas implements Runnable{
 
@@ -26,8 +24,9 @@ public class Game extends Canvas implements Runnable{
 
     public static STATE gameState = STATE.Menu;
 
-    public Game(){
+    public Game() {
 
+        new OS();
         handler = new Handler();
         menu = new Menu(this, handler);
 
@@ -37,7 +36,6 @@ public class Game extends Canvas implements Runnable{
         new Window(WIDTH, HEIGHT, "XAYB", this);
 
 
-        handler.addObject(new Player(50,50, ID.Player));
     }
 
 
@@ -98,13 +96,14 @@ public class Game extends Canvas implements Runnable{
                 RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         if (gameState == STATE.Game){
-
+            g.setColor(Color.black);
+            g.fillRect(0,0, Game.WIDTH, Game.HEIGHT);
             handler.render(g);
         }else if (gameState == STATE.Menu){
+            g.setColor(Color.black);
+            g.fillRect(0,0, Game.WIDTH, Game.HEIGHT);
             menu.render(g);
         }
-
-
 
         g.dispose();
         bs.show();

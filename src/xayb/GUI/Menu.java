@@ -25,7 +25,7 @@ public class Menu extends MouseAdapter{
 
         if (mouseOver(mx, my, 210,150,200, 64)){
             Game.gameState = Game.STATE.Game;
-            handler.addObject(new Player(50,50, ID.Player));
+            handler.addObject(new Player(50, 50, ID.Player));
         }
     }
 
@@ -35,9 +35,7 @@ public class Menu extends MouseAdapter{
 
     private boolean mouseOver(int mx, int my, int x, int y, int width, int height){
         if (mx > x && mx < x + width){
-            if (my > y && my < y + height){
-                return true;
-            }else return false;
+            return my > y && my < y + height;
         }else return false;
     }
 
@@ -47,8 +45,6 @@ public class Menu extends MouseAdapter{
 
     public void render(Graphics g){
 
-        g.setColor(Color.black);
-        g.fillRect(0,0, Game.WIDTH, Game.HEIGHT);
 
         Font font = new Font("MV Boli", 1, 50);
         Font font2 = new Font("Arial", 1, 40);

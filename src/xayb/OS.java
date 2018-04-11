@@ -4,7 +4,7 @@ public class OS {
 
     private static String OS = System.getProperty("os.name").toLowerCase();
 
-    public static void OS(){
+    public static void optimize(){
         if (OS.contains("win")){
             System.setProperty("sun.java2d.transaccel", "True");
             System.setProperty("sun.java2d.d3d", "True");

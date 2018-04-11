@@ -1,7 +1,6 @@
 package xayb.GUI;
 
 
-import java.util.concurrent.*;
 import xayb.Game;
 import xayb.MusicPlayer;
 import xayb.handler.ThreadPool;
@@ -12,9 +11,11 @@ import java.awt.Dimension;
 
 public class Window extends Canvas{
 
+
+    public static ThreadPool pool = new ThreadPool(2);
+
     public Window(int width, int height, String title, Game game){
 
-        ThreadPool pool = new ThreadPool(2);
 
         JFrame frame = new JFrame(title);
 

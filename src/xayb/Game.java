@@ -2,8 +2,7 @@ package xayb;
 
 import xayb.GUI.Menu;
 import xayb.GUI.Window;
-import xayb.handler.Handler;
-import xayb.handler.Input;
+import xayb.handler.*;
 
 
 import java.awt.*;
@@ -13,9 +12,10 @@ public class Game extends Canvas implements Runnable{
 
     public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
     private boolean running = false;
-    private Thread thread;
     private Handler handler;
     private Menu menu;
+
+    // TODO : Add resume and new game features
 
     public enum STATE {
         Menu,
@@ -26,7 +26,8 @@ public class Game extends Canvas implements Runnable{
 
     public Game() {
 
-        new OS();
+        OS.optimize();
+
         handler = new Handler();
         menu = new Menu(this, handler);
 
@@ -35,13 +36,14 @@ public class Game extends Canvas implements Runnable{
 
         new Window(WIDTH, HEIGHT, "XAYB", this);
 
+        handler.addObject(new Player(50, 50, ID.Player));
 
     }
 
 
     public synchronized void stop(){
         try {
-            thread.join();
+            Window.pool.dispose();
             running=false;
         }catch (Exception e){
             e.printStackTrace();

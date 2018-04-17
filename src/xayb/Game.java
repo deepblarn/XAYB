@@ -5,15 +5,20 @@ import xayb.GUI.Window;
 import xayb.handler.*;
 
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Game extends Canvas implements Runnable{
 
     public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
-    private boolean running = false;
+    private static boolean running = false;
     private Handler handler;
     private Menu menu;
+    private static BufferedImage image;
+
 
     // TODO : Add resume and new game features
 
@@ -35,13 +40,20 @@ public class Game extends Canvas implements Runnable{
         this.addMouseListener(menu);
 
         new Window(WIDTH, HEIGHT, "XAYB", this);
+    }
 
-        handler.addObject(new Player(50, 50, ID.Player));
+    public static BufferedImage getImage(String img) {
+        try {
+            image = ImageIO.read(Game.class.getResourceAsStream("./img/" + img + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        image.flush();
+        return image;
 
     }
 
-
-    public synchronized void stop(){
+    public static synchronized void stop(){
         try {
             Window.pool.dispose();
             running=false;
@@ -102,8 +114,6 @@ public class Game extends Canvas implements Runnable{
             g.fillRect(0,0, Game.WIDTH, Game.HEIGHT);
             handler.render(g);
         }else if (gameState == STATE.Menu){
-            g.setColor(Color.black);
-            g.fillRect(0,0, Game.WIDTH, Game.HEIGHT);
             menu.render(g);
         }
 

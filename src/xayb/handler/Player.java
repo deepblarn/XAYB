@@ -25,7 +25,7 @@ public class Player extends GameObject{
     public void render(Graphics g){
 
         g.setColor(Color.blue);
-        g.fillRect(x,y,50,50);
+        g.fillRect(x,y,55,50);
     }
 
 }

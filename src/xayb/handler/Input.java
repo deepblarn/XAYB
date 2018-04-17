@@ -26,14 +26,20 @@ public class Input extends KeyAdapter{
                 if (key == KeyEvent.VK_D) tempObj.setVelX(5);
                 if (key == KeyEvent.VK_A) tempObj.setVelX(-5);
                 if (key == KeyEvent.VK_F) handler.removeObject(tempObj);
-
+                if (key == KeyEvent.VK_E){
+                    Game.gameState = Game.STATE.Menu;
+                    handler.removeObject(tempObj);
+                }
 
             }
 
         }
 
-        if (key == KeyEvent.VK_ESCAPE) System.exit(1);
-        if (key == KeyEvent.VK_E) Game.gameState = Game.STATE.Menu;
+        if (key == KeyEvent.VK_ESCAPE) {
+            System.exit(1);
+            Game.stop();
+        }
+
 
 
     }

@@ -5,15 +5,20 @@ import xayb.handler.Handler;
 import xayb.handler.ID;
 import xayb.handler.Player;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
+import java.io.IOException;
 
-public class Menu extends MouseAdapter{
+public class Menu extends MouseAdapter {
 
 
     private Game game;
     private Handler handler;
+    private BufferedImage image;
 
     public Menu(Game game, Handler handler){
         this.game = game;
@@ -25,6 +30,7 @@ public class Menu extends MouseAdapter{
 
         if (mouseOver(mx, my, 210,150,200, 64)){
             Game.gameState = Game.STATE.Game;
+            handler.addObject(new Player(50,50, ID.Player));
         }
     }
 
@@ -43,6 +49,9 @@ public class Menu extends MouseAdapter{
     }
 
     public void render(Graphics g){
+
+
+        g.drawImage(Game.getImage("aa"), 0, 0,Game.WIDTH, Game.HEIGHT,null);
 
 
         Font font = new Font("MV Boli", 1, 50);
@@ -73,5 +82,6 @@ public class Menu extends MouseAdapter{
         g.setColor(Color.white);
         g.drawRect(210,350,200,64);
     }
+
 
 }

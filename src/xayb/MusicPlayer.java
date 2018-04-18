@@ -24,8 +24,13 @@ public class MusicPlayer implements Runnable{
             DataLine.Info info = new DataLine.Info(Clip.class, format);
             Clip clip = (Clip) AudioSystem.getLine(info);
             clip.open(ais);
-            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue(-20);
+            // Adjust the volume on the output line.
+            if( clip.isControlSupported( FloatControl.Type.MASTER_GAIN)) {
+                // If inside this if, the Master_Gain must be supported. Yes?
+                FloatControl volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                // This line throws an exception. "Master_Gain not supported"
+                volume.setValue( -20 );
+            }
             clip.loop(Clip.LOOP_CONTINUOUSLY);
 
         }catch (Exception e) {

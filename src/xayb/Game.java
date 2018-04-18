@@ -17,7 +17,6 @@ public class Game extends Canvas implements Runnable{
     private static boolean running = false;
     private Handler handler;
     private Menu menu;
-    private static BufferedImage image;
 
 
     // TODO : Add resume and new game features
@@ -39,18 +38,18 @@ public class Game extends Canvas implements Runnable{
         this.addKeyListener(new Input(handler));
         this.addMouseListener(menu);
 
+
         new Window(WIDTH, HEIGHT, "XAYB", this);
     }
 
     public static BufferedImage getImage(String img) {
+
         try {
-            image = ImageIO.read(Game.class.getResourceAsStream("./img/" + img + ".png"));
+            return ImageIO.read(Game.class.getResourceAsStream("./img/" + img));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        image.flush();
-        return image;
-
+        return null;
     }
 
     public static synchronized void stop(){
@@ -114,6 +113,7 @@ public class Game extends Canvas implements Runnable{
             g.fillRect(0,0, Game.WIDTH, Game.HEIGHT);
             handler.render(g);
         }else if (gameState == STATE.Menu){
+            g.drawImage(Game.getImage("aa.png"), 0, 0,Game.WIDTH, Game.HEIGHT,null);
             menu.render(g);
         }
 

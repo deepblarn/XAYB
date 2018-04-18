@@ -51,8 +51,6 @@ public class Menu extends MouseAdapter {
     public void render(Graphics g){
 
 
-        g.drawImage(Game.getImage("aa"), 0, 0,Game.WIDTH, Game.HEIGHT,null);
-
 
         Font font = new Font("MV Boli", 1, 50);
         Font font2 = new Font("Arial", 1, 40);

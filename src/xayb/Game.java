@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class Game extends Canvas implements Runnable{
 
-    public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+    public static final int WIDTH = 1920, HEIGHT = 1080;
     private static boolean running = false;
     private Handler handler;
     private Menu menu;
@@ -40,13 +40,14 @@ public class Game extends Canvas implements Runnable{
         this.addMouseListener(menu);
 
         new Window(WIDTH, HEIGHT, "XAYB", this);
+        System.out.println(HEIGHT);
     }
 
     public static BufferedImage getImage(String img) {
         try {
-            image = ImageIO.read(Game.class.getResourceAsStream("./img/" + img + ".png"));
+            image = ImageIO.read(Game.class.getResource("./img/" + img + ".png"));
         } catch (IOException e) {
-            e.printStackTrace();
+
         }
         image.flush();
         return image;
@@ -65,7 +66,7 @@ public class Game extends Canvas implements Runnable{
     public void run(){
         running=true;
         long lastTime = System.nanoTime();
-        double amountTicks = 60.0;
+        double amountTicks = 144.0;
         double ns = 1000000000 / amountTicks;
         double delta = 0;
         long timer = System.currentTimeMillis();

@@ -33,7 +33,7 @@ public class Window extends Canvas{
         frame.setVisible(true);
         game.requestFocus();
 
-        frame.setIconImage(Game.getImage("icon"));
+        frame.setIconImage(Game.getImage("icon.png"));
         MusicPlayer player = new MusicPlayer("oniku-loop-2");
 
         pool.addThread(game);

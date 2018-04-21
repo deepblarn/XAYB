@@ -8,10 +8,11 @@ public class MusicPlayer implements Runnable{
 
     private ArrayList<String> musicFiles;
     private int curentsongindex;
-    public MusicPlayer(String... files){
+    private boolean loop;
+    public MusicPlayer(String file, boolean loop){
         musicFiles = new ArrayList<String>();
-        for (String file : files)
-            musicFiles.add("./src/resources/audio/" + file + ".wav");
+        musicFiles.add("./src/resources/audio/" + file + ".wav");
+        this.loop = loop;
     }
 
     private void playSound(String fileName){
@@ -31,7 +32,11 @@ public class MusicPlayer implements Runnable{
                 // This line throws an exception. "Master_Gain not supported"
                 volume.setValue( -20 );
             }
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            if (loop){
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
+            }else{
+                clip.start();
+            }
 
         }catch (Exception e) {
             System.out.println(e);

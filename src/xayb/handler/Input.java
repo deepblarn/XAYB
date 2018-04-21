@@ -2,6 +2,7 @@ package xayb.handler;
 
 
 import xayb.Game;
+import xayb.MusicPlayer;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -9,6 +10,7 @@ import java.awt.event.KeyEvent;
 public class Input extends KeyAdapter{
 
     private Handler handler;
+    public static ThreadPool pool = new ThreadPool(2);
 
     public Input(Handler handler){
         this.handler = handler;
@@ -26,6 +28,15 @@ public class Input extends KeyAdapter{
                 if (key == KeyEvent.VK_D) tempObj.setVelX(5);
                 if (key == KeyEvent.VK_A) tempObj.setVelX(-5);
                 if (key == KeyEvent.VK_F) handler.removeObject(tempObj);
+                if (key == KeyEvent.VK_G) {
+                    MusicPlayer player = new MusicPlayer("NFF-feed-2", false);
+                    pool.addThread(player);
+                }
+                if (key == KeyEvent.VK_H) {
+                    MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);
+                    pool.addThread(player);
+                }
+
                 if (key == KeyEvent.VK_E){
                     Game.gameState = Game.STATE.Menu;
                     handler.removeObject(tempObj);

@@ -17,15 +17,18 @@ public class Player extends GameObject{
         x += velX;
         y += velY;
 
-        x = Game.clamp(x, 0, Game.WIDTH-55);
-        y = Game.clamp(y, 0, Game.HEIGHT-75);
+        x = Game.clamp(x, 0, Game.WIDTH-50);
+        y = Game.clamp(y, 0, Game.HEIGHT-50);
+
+        if (Game.isClamp(x,0,Game.WIDTH-50)) System.out.println("X");
+        if (Game.isClamp(y,0,Game.HEIGHT-50)) System.out.println("Y");
     }
 
     @Override
     public void render(Graphics g){
 
         g.setColor(Color.blue);
-        g.fillRect(x,y,55,50);
+        g.fillRect(x,y,50,50);
     }
 
 }

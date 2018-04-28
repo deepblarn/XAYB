@@ -18,6 +18,7 @@ public class Game extends Canvas implements Runnable{
     private Handler handler;
     private Menu menu;
     private static BufferedImage image;
+    public Graphics g;
 
 
     // TODO : Add resume and new game features
@@ -106,7 +107,7 @@ public class Game extends Canvas implements Runnable{
             return;
         }
 
-        Graphics g = bs.getDrawGraphics();
+        this.g = bs.getDrawGraphics();
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                 RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 

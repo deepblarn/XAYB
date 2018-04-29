@@ -18,41 +18,16 @@ public class Input extends KeyAdapter{
 
     public void keyPressed(KeyEvent e){
         int key = e.getKeyCode();
-        for (int i = 0; i < handler.object.size(); i++) {
+        for (int i = 0; i < Game.handler.object.size(); i++) {
             GameObject tempObj = handler.object.get(i);
 
             if (tempObj.getId() == ID.Player){
 
-                if (key == KeyEvent.VK_W) tempObj.setVelY(-5);
-                if (key == KeyEvent.VK_S) tempObj.setVelY(5);
-                if (key == KeyEvent.VK_D) tempObj.setVelX(5);
-                if (key == KeyEvent.VK_A) tempObj.setVelX(-5);
-                if (key == KeyEvent.VK_F){
-                    int posy = 0;
-                    for (int j = 0; j < handler.object.size(); j++) {
-                        GameObject tempObj2 = handler.object.get(j);
+                if (key == KeyEvent.VK_S) coinPressed(ID.BlackCoin);
+                else if (key == KeyEvent.VK_D) coinPressed(ID.GreenCoin);
+                else if (key == KeyEvent.VK_A) coinPressed(ID.RedCoin);
+                else if (key == KeyEvent.VK_F) coinPressed(ID.BlueCoin);
 
-                        if (tempObj2.getId() == ID.BlueCoin && tempObj2.getY() >= posy){
-                            posy=tempObj2.getY();
-
-                        }
-                    }
-                    for (int k = 0; k < handler.object.size(); k++) {
-                        GameObject tempObj3 = handler.object.get(k);
-
-                        if (tempObj3.id == ID.BlueCoin && tempObj3.getY() == posy) handler.object.remove(tempObj3);
-                    }
-
-
-                }
-                if (key == KeyEvent.VK_G) {
-                    MusicPlayer player = new MusicPlayer("NFF-feed-2", false);
-                    pool.addThread(player);
-                }
-                if (key == KeyEvent.VK_H) {
-                    MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);
-                    pool.addThread(player);
-                }
 
                 if (key == KeyEvent.VK_E){
                     Game.gameState = Game.STATE.Menu;
@@ -68,6 +43,44 @@ public class Input extends KeyAdapter{
         }
 
 
+
+
+
+
+    }
+
+    public void coinPressed(ID id){
+        int posy = 0;
+        boolean fail = true;
+        try {
+            for (int j = 0; j < handler.object.size(); j++) {
+                GameObject tempObj2 = handler.object.get(j);
+
+                if (tempObj2.getId() == id && tempObj2.getY() >= posy){
+                    posy=tempObj2.getY();
+
+                }
+            }
+            for (int k = 0; k < handler.object.size(); k++) {
+                GameObject tempObj3 = handler.object.get(k);
+
+                if (tempObj3.id == id && tempObj3.getY() == posy) {
+                    handler.object.remove(tempObj3);
+                    MusicPlayer player = new MusicPlayer("NFF-feed-2", false);
+                    pool.addThread(player);
+                    HUD.addScore(50);
+                    fail=false;
+                }
+            }
+
+            if (fail){
+                MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);
+                pool.addThread(player);
+                HUD.addFail();
+            }
+        }catch (Exception a){
+            a.printStackTrace();
+        }
 
     }
 

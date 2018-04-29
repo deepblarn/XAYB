@@ -1,7 +1,10 @@
 package xayb.GUI;
 
 import xayb.Game;
+import xayb.coins.BlackCoin;
 import xayb.coins.BlueCoin;
+import xayb.coins.GreenCoin;
+import xayb.coins.RedCoin;
 import xayb.handler.*;
 
 import javax.imageio.ImageIO;
@@ -37,25 +40,25 @@ public class Menu extends MouseAdapter {
         if (gameState == STATE.Menu && mouseOver(mx, my, WIDTH / 2 - (int) (WIDTH * 0.12), (int) (HEIGHT * 0.33), (int) (WIDTH * 0.24), (int) (HEIGHT * 0.08))){
             //Change gameState
             gameState = STATE.Game;
+            //Clear all objects
             handler.clearObjects();
+
+            //Set score and errors to 0
+            HUD.fails = 0;
+            HUD.score=0;
             //Add player
             handler.addObject(new HUD(10,10, ID.HUD));
 
 
-            int max = 10;
-            int min = 5;
-            int diff = max - min;
-            Random rn = new Random();
-            int in = rn.nextInt(diff + 1);
-            in += min;
 
             handler.addObject(new Player(10000,10000, ID.Player));
 
 
 
-            handler.addObject(new BlueCoin(500,500, ID.BlueCoin));
-            handler.addObject(new BlueCoin(500,300, ID.BlueCoin));
-            handler.addObject(new BlueCoin(500,100, ID.BlueCoin));
+            handler.addObject(new GreenCoin(670,300, ID.GreenCoin));
+            handler.addObject(new BlueCoin(510,220, ID.BlueCoin));
+            handler.addObject(new RedCoin(520,500, ID.RedCoin));
+            handler.addObject(new BlackCoin(500,600, ID.BlackCoin));
 
 
 

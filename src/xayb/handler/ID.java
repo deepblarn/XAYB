@@ -5,7 +5,7 @@ public enum ID {
     Player(),
     HUD(),
     BlueCoin(),
-    WhiteCoin(),
+    BlackCoin(),
     RedCoin(),
     GreenCoin();
 

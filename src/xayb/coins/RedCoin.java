@@ -1,18 +1,20 @@
 package xayb.coins;
 
+
+
 import xayb.Game;
 import xayb.MusicPlayer;
 import xayb.handler.*;
 
 import java.awt.*;
 
-public class BlueCoin extends GameObject {
+public class RedCoin extends GameObject {
 
     public static ThreadPool pool = new ThreadPool(2);
 
-    public BlueCoin(int x, int y, ID id) {
+    public RedCoin(int x, int y, ID id) {
         super(x, y, id);
-        velY = -1;
+        velY = 1;
         velX = 1;
 
     }
@@ -27,7 +29,7 @@ public class BlueCoin extends GameObject {
         for (int j = 0; j < Game.handler.object.size(); j++) {
             GameObject tempObj2 = Game.handler.object.get(j);
 
-            if (tempObj2.getId() == ID.BlueCoin && tempObj2.getY() > Game.HEIGHT-105){
+            if (tempObj2.getId() == ID.RedCoin && tempObj2.getY() > Game.HEIGHT-105){
                 Game.handler.object.remove(tempObj2);
                 MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);
                 pool.addThread(player);
@@ -45,7 +47,7 @@ public class BlueCoin extends GameObject {
     public void render(Graphics g) {
 
         g.setColor(Color.BLUE);
-        Image img = Game.getImage("coin2");
+        Image img = Game.getImage("coin4");
         g.drawImage(img, x, y, null);
 
     }

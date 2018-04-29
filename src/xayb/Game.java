@@ -19,6 +19,8 @@ public class Game extends Canvas implements Runnable{
     private Menu menu;
     private static BufferedImage image;
     public Graphics g;
+    public static ThreadPool pool = new ThreadPool(2);
+
 
 
     // TODO : Add resume and new game features
@@ -103,7 +105,7 @@ public class Game extends Canvas implements Runnable{
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
         if (bs ==null){
-            this.createBufferStrategy(2);
+            this.createBufferStrategy(3);
             return;
         }
 

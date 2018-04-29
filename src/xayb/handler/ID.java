@@ -3,6 +3,10 @@ package xayb.handler;
 public enum ID {
 
     Player(),
-    Spawn();
+    HUD(),
+    BlueCoin(),
+    WhiteCoin(),
+    RedCoin(),
+    GreenCoin();
 
 }

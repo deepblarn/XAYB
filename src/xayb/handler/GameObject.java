@@ -3,7 +3,7 @@ package xayb.handler;
 
 import java.awt.Graphics;
 
-abstract class GameObject {
+public abstract class GameObject {
 
     protected int x,y;
     protected ID id;

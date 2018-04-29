@@ -14,13 +14,11 @@ public class Window extends Canvas{
 
 
     public static ThreadPool pool = new ThreadPool(2);
-    private BufferedImage image;
-    public static JFrame frame;
 
     public Window(int width, int height, String title, Game game){
 
 
-        frame = new JFrame(title);
+        JFrame frame = new JFrame(title);
 
         frame.setPreferredSize(new Dimension(width, height));
         frame.setMaximumSize(new Dimension(width, height));

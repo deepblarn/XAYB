@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class Handler {
 
-    LinkedList<GameObject> object = new LinkedList<>();
+    public LinkedList<GameObject> object = new LinkedList<>();
 
 
     public void tick(){
@@ -26,6 +26,10 @@ public class Handler {
 
     public void removeObject(GameObject object){
         this.object.remove(object);
+    }
+
+    public void clearObjects(){
+        this.object.clear();
     }
 
 

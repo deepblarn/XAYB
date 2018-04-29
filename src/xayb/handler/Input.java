@@ -27,7 +27,24 @@ public class Input extends KeyAdapter{
                 if (key == KeyEvent.VK_S) tempObj.setVelY(5);
                 if (key == KeyEvent.VK_D) tempObj.setVelX(5);
                 if (key == KeyEvent.VK_A) tempObj.setVelX(-5);
-                if (key == KeyEvent.VK_F) handler.removeObject(tempObj);
+                if (key == KeyEvent.VK_F){
+                    int posy = 0;
+                    for (int j = 0; j < handler.object.size(); j++) {
+                        GameObject tempObj2 = handler.object.get(j);
+
+                        if (tempObj2.getId() == ID.BlueCoin && tempObj2.getY() >= posy){
+                            posy=tempObj2.getY();
+
+                        }
+                    }
+                    for (int k = 0; k < handler.object.size(); k++) {
+                        GameObject tempObj3 = handler.object.get(k);
+
+                        if (tempObj3.id == ID.BlueCoin && tempObj3.getY() == posy) handler.object.remove(tempObj3);
+                    }
+
+
+                }
                 if (key == KeyEvent.VK_G) {
                     MusicPlayer player = new MusicPlayer("NFF-feed-2", false);
                     pool.addThread(player);
@@ -39,7 +56,6 @@ public class Input extends KeyAdapter{
 
                 if (key == KeyEvent.VK_E){
                     Game.gameState = Game.STATE.Menu;
-                    handler.removeObject(tempObj);
                 }
 
             }

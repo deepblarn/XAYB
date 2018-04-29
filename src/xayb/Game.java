@@ -15,7 +15,7 @@ public class Game extends Canvas implements Runnable{
 
     public static final int WIDTH = 1920, HEIGHT = 1080;
     private static boolean running = false;
-    private Handler handler;
+    public static Handler handler;
     private Menu menu;
     private static BufferedImage image;
     public Graphics g;
@@ -32,7 +32,7 @@ public class Game extends Canvas implements Runnable{
 
     public Game() {
 
-        OS.optimize();
+        System.setProperty("sun.java2d.opengl", "true");
 
         handler = new Handler();
         menu = new Menu(this, handler);
@@ -85,7 +85,7 @@ public class Game extends Canvas implements Runnable{
             frames++;
             if (System.currentTimeMillis() - timer > 1000){
                 timer +=1000;
-                System.out.println("FPS: " + frames);
+                //System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }

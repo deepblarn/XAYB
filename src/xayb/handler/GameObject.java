@@ -6,6 +6,7 @@ import java.awt.Graphics;
 public abstract class GameObject {
 
     protected int x,y;
+    protected static int ys;
     protected ID id;
     protected int velX, velY;
 
@@ -18,7 +19,7 @@ public abstract class GameObject {
     }
 
     public int getY() {
-        return y;
+        return this.y;
     }
 
     public void setY(int y) {
@@ -53,10 +54,15 @@ public abstract class GameObject {
         this.x = x;
         this.y = y;
         this.id = id;
+
     }
 
     public abstract void tick();
     public abstract void render(Graphics g);
 
 
+
+    public static int getYs(GameObject gameObject, GameObject gameObject1) {
+        return ys;
+    }
 }

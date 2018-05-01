@@ -23,7 +23,6 @@ public class HUD extends GameObject{
         g.setColor(Color.WHITE);
         g.drawString("Fails: " + fails, 10,20);
         g.drawString("Score: " + score, 10,35);
-        g.drawRect(0,Game.HEIGHT - 50, 100, 100);
 
     }
 

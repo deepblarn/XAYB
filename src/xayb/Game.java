@@ -66,6 +66,7 @@ public class Game extends Canvas implements Runnable{
         }
     }
 
+
     public void run(){
         running=true;
         long lastTime = System.nanoTime();
@@ -119,6 +120,7 @@ public class Game extends Canvas implements Runnable{
             handler.render(g);
         }else if (gameState == STATE.Menu){
             menu.render(g);
+
         }
 
         g.dispose();

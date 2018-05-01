@@ -1,6 +1,7 @@
 package xayb.handler;
 
 import java.awt.Graphics;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 public class Handler {
@@ -22,6 +23,7 @@ public class Handler {
 
     public void addObject(GameObject object){
         this.object.add(object);
+
     }
 
     public void removeObject(GameObject object){

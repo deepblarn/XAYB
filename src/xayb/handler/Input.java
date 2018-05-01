@@ -6,6 +6,9 @@ import xayb.MusicPlayer;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Input extends KeyAdapter{
 
@@ -23,14 +26,18 @@ public class Input extends KeyAdapter{
 
             if (tempObj.getId() == ID.Player){
 
-                if (key == KeyEvent.VK_S) coinPressed(ID.BlackCoin);
-                else if (key == KeyEvent.VK_D) coinPressed(ID.GreenCoin);
-                else if (key == KeyEvent.VK_A) coinPressed(ID.RedCoin);
-                else if (key == KeyEvent.VK_F) coinPressed(ID.BlueCoin);
+                if (key == KeyEvent.VK_S){
+                    new Thread(() -> coinPressed(ID.Coin)).start();
+                }
+                if (key == KeyEvent.VK_D) coinPressed(ID.Coin);
+                if (key == KeyEvent.VK_A) coinPressed(ID.Coin);
+                if (key == KeyEvent.VK_F) coinPressed(ID.Coin);
 
 
                 if (key == KeyEvent.VK_E){
-                    Game.gameState = Game.STATE.Menu;
+                    Game.gameState = Game.STATE.Menu;            handler.clearObjects();
+
+
                 }
 
             }
@@ -39,7 +46,6 @@ public class Input extends KeyAdapter{
 
         if (key == KeyEvent.VK_ESCAPE) {
             System.exit(1);
-            Game.stop();
         }
 
 
@@ -49,38 +55,51 @@ public class Input extends KeyAdapter{
 
     }
 
+    // TODO : coinpressed threading
     public void coinPressed(ID id){
         int posy = 0;
         boolean fail = true;
-        try {
-            for (int j = 0; j < handler.object.size(); j++) {
-                GameObject tempObj2 = handler.object.get(j);
+        ArrayList<Integer> alt = new ArrayList<>();
+        new Thread(() -> {
+            try {
+                for (int j = 0; j < handler.object.size(); j++) {
+                    GameObject tempObj2 = handler.object.get(j);
 
-                if (tempObj2.getId() == id && tempObj2.getY() >= posy){
-                    posy=tempObj2.getY();
-
+                    if (tempObj2.getId() == ID.Coin){
+                        alt.add(tempObj2.getY());
+                    }
                 }
-            }
-            for (int k = 0; k < handler.object.size(); k++) {
-                GameObject tempObj3 = handler.object.get(k);
+                int limit = alt.size();
+                int max = Integer.MIN_VALUE;
+                int maxPos = -1;
+                for (int i = 0; i < limit; i++) {
+                    int value = alt.get(i);
+                    if (value > max) {
+                        max = value;
+                        maxPos = i;
+                    }
+                }
+                for (int i = 0; i < limit; i++) {
+                    int value = alt.get(i);
+                    if (value > max) {
+                        max = value;
+                        maxPos = i;
+                    }
+                }
+                if (handler.object.size() > 2) handler.object.remove(maxPos+2);
 
-                if (tempObj3.id == id && tempObj3.getY() == posy) {
-                    handler.object.remove(tempObj3);
-                    MusicPlayer player = new MusicPlayer("NFF-feed-2", false);
+                System.out.println(handler.object);
+
+                if (fail){
+                    MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);
                     pool.addThread(player);
-                    HUD.addScore(50);
-                    fail=false;
+                    HUD.addFail();
                 }
+            }catch (Exception a){
+                a.printStackTrace();
             }
+        }).run();
 
-            if (fail){
-                MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);
-                pool.addThread(player);
-                HUD.addFail();
-            }
-        }catch (Exception a){
-            a.printStackTrace();
-        }
 
     }
 

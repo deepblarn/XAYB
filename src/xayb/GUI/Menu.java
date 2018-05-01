@@ -1,20 +1,13 @@
 package xayb.GUI;
 
 import xayb.Game;
-import xayb.coins.BlackCoin;
-import xayb.coins.BlueCoin;
-import xayb.coins.GreenCoin;
-import xayb.coins.RedCoin;
+import xayb.coins.Coin;
 import xayb.handler.*;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-import java.io.IOException;
-import java.util.Random;
 
 import static xayb.Game.*;
 
@@ -41,7 +34,6 @@ public class Menu extends MouseAdapter {
             //Change gameState
             gameState = STATE.Game;
             //Clear all objects
-            handler.clearObjects();
 
             //Set score and errors to 0
             HUD.fails = 0;
@@ -49,16 +41,18 @@ public class Menu extends MouseAdapter {
             //Add player
             handler.addObject(new HUD(10,10, ID.HUD));
 
-
-
             handler.addObject(new Player(10000,10000, ID.Player));
 
 
+            //Ordered by Y
 
-            handler.addObject(new GreenCoin(670,300, ID.GreenCoin));
-            handler.addObject(new BlueCoin(510,220, ID.BlueCoin));
-            handler.addObject(new RedCoin(520,500, ID.RedCoin));
-            handler.addObject(new BlackCoin(500,600, ID.BlackCoin));
+
+            new Thread(() -> handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, 10,-1))).start();
+            new Thread(() -> handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 9, -2))).start();
+            new Thread(() -> handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 11, -2))).start();
+            new Thread(() -> handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 4,-12))).start();
+
+
 
 
 

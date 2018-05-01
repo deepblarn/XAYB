@@ -47,10 +47,10 @@ public class Menu extends MouseAdapter {
             //Ordered by Y
 
 
-            new Thread(() -> handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, 10,-1))).start();
-            new Thread(() -> handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 9, -2))).start();
-            new Thread(() -> handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 11, -2))).start();
-            new Thread(() -> handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 4,-12))).start();
+            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, 10,-1));
+            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 9, -2));
+            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 11, -2));
+            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 4,-12));
 
 
 

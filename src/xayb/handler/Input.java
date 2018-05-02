@@ -27,7 +27,7 @@ public class Input extends KeyAdapter{
             if (tempObj.getId() == ID.Player){
 
                 if (key == KeyEvent.VK_S){
-                    new Thread(() -> coinPressed(ID.Coin)).start();
+                    coinPressed(ID.Coin);
                 }
                 if (key == KeyEvent.VK_D) coinPressed(ID.Coin);
                 if (key == KeyEvent.VK_A) coinPressed(ID.Coin);
@@ -35,7 +35,8 @@ public class Input extends KeyAdapter{
 
 
                 if (key == KeyEvent.VK_E){
-                    Game.gameState = Game.STATE.Menu;            handler.clearObjects();
+                    Game.gameState = Game.STATE.Menu;
+                    handler.clearObjects();
 
 
                 }
@@ -66,21 +67,16 @@ public class Input extends KeyAdapter{
                     GameObject tempObj2 = handler.object.get(j);
 
                     if (tempObj2.getId() == ID.Coin){
-                        alt.add(tempObj2.getY());
+                        posy = tempObj2.getY();
                     }
                 }
-                int limit = alt.size();
-                int max = Integer.MIN_VALUE;
-                int maxPos = -1;
-                for (int i = 0; i < limit; i++) {
-                    int value = alt.get(i);
-                    if (value > max) {
-                        max = value;
-                        maxPos = i;
+                for (int k = 0; k < handler.object.size(); k++) {
+                    GameObject tempObj3 = handler.object.get(k);
+
+                    if (tempObj3.getId() == ID.Coin && posy == tempObj3.getY()){
+                        handler.removeObject(tempObj3);
                     }
                 }
-                if (handler.object.size() > 2) handler.object.remove(maxPos+2);
-                System.out.println(handler.object);
             }catch (Exception a){
                 a.printStackTrace();
             }

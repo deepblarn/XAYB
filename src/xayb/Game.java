@@ -56,7 +56,7 @@ public class Game extends Canvas implements Runnable{
         try {
             image = ImageIO.read(Game.class.getResource("./img/" + img + ".png"));
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
         image.flush();
         return image;
@@ -74,30 +74,35 @@ public class Game extends Canvas implements Runnable{
 
 
     public void run(){
-        running=true;
-        long lastTime = System.nanoTime();
-        double amountTicks = 144.0;
-        double ns = 1000000000 / amountTicks;
-        double delta = 0;
-        long timer = System.currentTimeMillis();
-        int frames = 0;
-        while (running){
-            long now = System.nanoTime();
-            delta += (now-lastTime)/ns;
-            lastTime=now;
-            while (delta>=1){
-                tick();
-                delta--;
+        try{
+            running=true;
+            long lastTime = System.nanoTime();
+            double amountTicks = 144.0;
+            double ns = 1000000000 / amountTicks;
+            double delta = 0;
+            long timer = System.currentTimeMillis();
+            int frames = 0;
+            while (running){
+                long now = System.nanoTime();
+                delta += (now-lastTime)/ns;
+                lastTime=now;
+                while (delta>=1){
+                    tick();
+                    delta--;
+                }
+                if (running)
+                    render();
+                frames++;
+                if (System.currentTimeMillis() - timer > 1000){
+                    timer +=1000;
+                    //System.out.println("FPS: " + frames);
+                    frames = 0;
+                }
             }
-            if (running)
-                render();
-            frames++;
-            if (System.currentTimeMillis() - timer > 1000){
-                timer +=1000;
-                //System.out.println("FPS: " + frames);
-                frames = 0;
-            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
         stop();
     }
 

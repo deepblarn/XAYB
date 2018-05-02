@@ -12,6 +12,7 @@ public class Coin extends GameObject {
 
     public static ThreadPool pool = new ThreadPool(2);
     private int type;
+    Image img;
     public Coin(int x, int y, ID id, int type, int velx, int vely) {
         super(x, y, id);
         this.type=type;
@@ -43,7 +44,16 @@ public class Coin extends GameObject {
     public void render(Graphics g) {
 
         g.setColor(Color.BLUE);
-        Image img = Game.getImage("coin"+type);
+        switch (this.type){
+            case 1:
+                img = Game.coin1;
+            case 2:
+                img = Game.coin2;
+            case 3:
+                img = Game.coin3;
+            case 4:
+                img = Game.coin4;
+        }
         g.drawImage(img, x, y, null);
 
     }

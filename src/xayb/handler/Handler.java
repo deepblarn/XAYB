@@ -11,7 +11,7 @@ public class Handler implements Iterable<GameObject>{
 
 
     public void tick(){
-        for (GameObject tempObject : object) {
+        for (GameObject tempObject : new LinkedList<>(object)) {
             tempObject.tick();
         }
     }

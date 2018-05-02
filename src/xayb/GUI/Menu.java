@@ -20,6 +20,7 @@ public class Menu extends MouseAdapter {
     private BufferedImage image;
     public static ThreadPool pool = new ThreadPool(2);
 
+
     public Menu(Game game, Handler handler){
         this.game = game;
         this.handler = handler;
@@ -40,7 +41,6 @@ public class Menu extends MouseAdapter {
             HUD.fails = 0;
             HUD.score=0;
             //Add player
-            handler.addObject(new HUD(10,10, ID.HUD));
 
             handler.addObject(new Player(1,1, ID.Player));
 
@@ -48,7 +48,7 @@ public class Menu extends MouseAdapter {
             //Ordered by Y
 
 
-            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, 10,-1));
+            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, 10,-11));
             handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 9, -2));
             handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 11, -2));
             handler.addObject(new Coin(Game.WIDTH/2,1000, ID.Coin, 3, 4,-12));

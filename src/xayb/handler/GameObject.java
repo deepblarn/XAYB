@@ -57,12 +57,15 @@ public abstract class GameObject {
 
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
     public abstract void tick();
     public abstract void render(Graphics g);
 
 
 
-    public static int getYs(GameObject gameObject, GameObject gameObject1) {
-        return ys;
-    }
+
 }

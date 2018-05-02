@@ -18,9 +18,9 @@ public class Game extends Canvas implements Runnable{
     public static Handler handler;
     private Menu menu;
     private static BufferedImage image;
-    public static Graphics g;
+    private Graphics g;
     public static ThreadPool pool = new ThreadPool(2);
-
+    public static Image coin1,coin2,coin3, coin4;
 
 
     // TODO : Add resume and new game features
@@ -32,9 +32,15 @@ public class Game extends Canvas implements Runnable{
 
     public static STATE gameState = STATE.Menu;
 
-    public Game() {
+    private Game() {
 
-        System.setProperty("sun.java2d.opengl", "true");
+        coin1 = getImage("coin1");
+        coin2 = getImage("coin2");
+        coin3 = getImage("coin3");
+        coin4 = getImage("coin4");
+
+
+        OS.optimize();
 
         handler = new Handler();
         menu = new Menu(this, handler);
@@ -57,7 +63,7 @@ public class Game extends Canvas implements Runnable{
 
     }
 
-    public static synchronized void stop(){
+    private static synchronized void stop(){
         try {
             Window.pool.dispose();
             running=false;

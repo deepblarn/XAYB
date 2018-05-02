@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.Comparator;
 
 import static xayb.Game.*;
 
@@ -41,7 +42,7 @@ public class Menu extends MouseAdapter {
             //Add player
             handler.addObject(new HUD(10,10, ID.HUD));
 
-            handler.addObject(new Player(10000,10000, ID.Player));
+            handler.addObject(new Player(1,1, ID.Player));
 
 
             //Ordered by Y
@@ -50,8 +51,7 @@ public class Menu extends MouseAdapter {
             handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, 10,-1));
             handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 9, -2));
             handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 11, -2));
-            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 4,-12));
-
+            handler.addObject(new Coin(Game.WIDTH/2,1000, ID.Coin, 3, 4,-12));
 
 
 

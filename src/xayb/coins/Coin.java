@@ -5,6 +5,8 @@ import xayb.MusicPlayer;
 import xayb.handler.*;
 
 import java.awt.*;
+import java.util.Comparator;
+import java.util.Iterator;
 
 public class Coin extends GameObject {
 
@@ -26,8 +28,7 @@ public class Coin extends GameObject {
 
 
         if (y > Game.HEIGHT-75){
-            Game.handler.removeObject(this);
-
+             Game.handler.removeObject(this);
         }
 
 

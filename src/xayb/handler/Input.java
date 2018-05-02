@@ -60,7 +60,7 @@ public class Input extends KeyAdapter{
         int posy = 0;
         boolean fail = true;
         ArrayList<Integer> alt = new ArrayList<>();
-        new Thread(() -> {
+
             try {
                 for (int j = 0; j < handler.object.size(); j++) {
                     GameObject tempObj2 = handler.object.get(j);
@@ -79,26 +79,12 @@ public class Input extends KeyAdapter{
                         maxPos = i;
                     }
                 }
-                for (int i = 0; i < limit; i++) {
-                    int value = alt.get(i);
-                    if (value > max) {
-                        max = value;
-                        maxPos = i;
-                    }
-                }
                 if (handler.object.size() > 2) handler.object.remove(maxPos+2);
-
                 System.out.println(handler.object);
-
-                if (fail){
-                    MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);
-                    pool.addThread(player);
-                    HUD.addFail();
-                }
             }catch (Exception a){
                 a.printStackTrace();
             }
-        }).run();
+
 
 
     }

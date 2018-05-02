@@ -18,7 +18,7 @@ public class Game extends Canvas implements Runnable{
     public static Handler handler;
     private Menu menu;
     private static BufferedImage image;
-    public Graphics g;
+    public static Graphics g;
     public static ThreadPool pool = new ThreadPool(2);
 
 

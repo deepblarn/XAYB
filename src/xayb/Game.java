@@ -13,14 +13,14 @@ import java.io.IOException;
 
 public class Game extends Canvas implements Runnable{
 
-    public static final int WIDTH = 1920, HEIGHT = 1080;
+    public static final int WIDTH = 800, HEIGHT = 800;
     private static boolean running = false;
     public static Handler handler;
     private Menu menu;
     private static BufferedImage image;
     private Graphics g;
     public static ThreadPool pool = new ThreadPool(2);
-    public static Image coin1,coin2,coin3, coin4;
+    public static Image coin1,coin2,coin3, menuimg;
 
 
     // TODO : Add resume and new game features
@@ -37,7 +37,7 @@ public class Game extends Canvas implements Runnable{
         coin1 = getImage("coin1");
         coin2 = getImage("coin2");
         coin3 = getImage("coin3");
-        coin4 = getImage("coin4");
+        menuimg = getImage("menu");
 
 
         OS.optimize();

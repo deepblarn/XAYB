@@ -11,15 +11,23 @@ import java.util.Iterator;
 public class Coin extends GameObject {
 
     public static ThreadPool pool = new ThreadPool(2);
-    private int type;
-    Image img;
+    public static int type;
+    private Image img;
     public Coin(int x, int y, ID id, int type, int velx, int vely) {
         super(x, y, id);
-        this.type=type;
+        Coin.type =type;
         velX=velx;
         velY=vely;
-
+        setTypeCoin(type);
+        if (Coin.type ==1){
+            this.img=Game.coin1;
+        }else if (Coin.type == 2){
+            this.img = Game.coin2;
+        }else if (Coin.type ==3){
+            this.img=Game.coin3;
+        }
     }
+
 
     @Override
     public void tick() {
@@ -29,7 +37,11 @@ public class Coin extends GameObject {
 
 
         if (y > Game.HEIGHT-75){
+            System.out.println(this);
              Game.handler.removeObject(this);
+             HUD.addFail();
+             MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);
+             pool.addThread(player);
         }
 
 
@@ -44,16 +56,7 @@ public class Coin extends GameObject {
     public void render(Graphics g) {
 
         g.setColor(Color.BLUE);
-        switch (this.type){
-            case 1:
-                img = Game.coin1;
-            case 2:
-                img = Game.coin2;
-            case 3:
-                img = Game.coin3;
-            case 4:
-                img = Game.coin4;
-        }
+
         g.drawImage(img, x, y, null);
 
     }

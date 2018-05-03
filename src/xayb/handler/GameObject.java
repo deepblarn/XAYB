@@ -9,6 +9,15 @@ public abstract class GameObject {
     protected static int ys;
     protected ID id;
     protected int velX, velY;
+    protected int typeCoin;
+
+    public void setTypeCoin(int type){
+        this.typeCoin = type;
+    }
+
+    public int getTypeCoin(){
+        return this.typeCoin;
+    }
 
     public int getX() {
         return x;

@@ -9,6 +9,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.Comparator;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import static xayb.Game.*;
 
@@ -25,6 +27,17 @@ public class Menu extends MouseAdapter {
         this.game = game;
         this.handler = handler;
     }
+
+    private static int getRandomNumberInRange(int max, int min) {
+
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+    }
+
     public void mousePressed(MouseEvent e){
         int mx = e.getX();
         int my = e.getY();
@@ -44,15 +57,17 @@ public class Menu extends MouseAdapter {
 
             handler.addObject(new Player(1,1, ID.Player));
 
+            handler.addObject(new HUD(0,0,ID.HUD));
 
             //Ordered by Y
 
 
-            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, 10,-11));
-            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 9, -2));
-            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 11, -2));
-            handler.addObject(new Coin(Game.WIDTH/2,1000, ID.Coin, 3, 4,-12));
+            for (int i = 0; i < 200; i++) {
+                handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, getRandomNumberInRange(10,-10),getRandomNumberInRange(-1,-20)));
+                handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 2, getRandomNumberInRange(10,-10), getRandomNumberInRange(-1,-20)));
+                handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, getRandomNumberInRange(10,-10), getRandomNumberInRange(-1,-20)));
 
+            }
 
 
 
@@ -83,7 +98,7 @@ public class Menu extends MouseAdapter {
     public void render(Graphics g){
 
 
-        g.drawImage(getImage("menu"), 0, 0, WIDTH, HEIGHT,null);
+        g.drawImage(Game.menuimg, 0, 0, WIDTH, HEIGHT,null);
 
 
 

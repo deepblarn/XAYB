@@ -62,7 +62,7 @@ public class Menu extends MouseAdapter {
             //Ordered by Y
 
 
-            for (int i = 0; i < 900; i++) {
+            for (int i = 0; i < 200; i++) {
                 handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, getRandomNumberInRange(10,-10),getRandomNumberInRange(-1,-20)));
                 handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 2, getRandomNumberInRange(10,-10), getRandomNumberInRange(-1,-20)));
                 handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, getRandomNumberInRange(10,-10), getRandomNumberInRange(-1,-20)));
@@ -98,7 +98,7 @@ public class Menu extends MouseAdapter {
     public void render(Graphics g){
 
 
-        g.drawImage(getImage("menu"), 0, 0, WIDTH, HEIGHT,null);
+        g.drawImage(Game.menuimg, 0, 0, WIDTH, HEIGHT,null);
 
 
 

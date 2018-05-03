@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cc23618f-9ed9-4fb2-a8d7-5abe76866830" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/XAYB/xayb/Game.class" afterPath="$PROJECT_DIR$/out/production/XAYB/xayb/Game.class" />
       <change beforePath="$PROJECT_DIR$/src/xayb/GUI/Menu.java" afterPath="$PROJECT_DIR$/src/xayb/GUI/Menu.java" />
       <change beforePath="$PROJECT_DIR$/src/xayb/Game.java" afterPath="$PROJECT_DIR$/src/xayb/Game.java" />
-      <change beforePath="$PROJECT_DIR$/src/xayb/coins/Coin.java" afterPath="$PROJECT_DIR$/src/xayb/coins/Coin.java" />
-      <change beforePath="$PROJECT_DIR$/src/xayb/handler/Input.java" afterPath="$PROJECT_DIR$/src/xayb/handler/Input.java" />
-      <change beforePath="$PROJECT_DIR$/src/xayb/img/coin4.png" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +20,8 @@
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/xayb/GUI/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state relative-caret-position="160">
+              <caret line="100" column="32" lean-forward="false" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -77,12 +75,12 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/xayb/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="38" column="34" lean-forward="true" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3833#3834#0" expanded="true" />
-                <element signature="e#3859#3860#0" expanded="true" />
+                <element signature="e#3871#3872#0" expanded="true" />
+                <element signature="e#3897#3898#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,8 +190,8 @@
         <option value="$PROJECT_DIR$/src/xayb/handler/Handler.java" />
         <option value="$PROJECT_DIR$/src/xayb/handler/GameObject.java" />
         <option value="$PROJECT_DIR$/src/xayb/coins/Coin.java" />
-        <option value="$PROJECT_DIR$/src/xayb/Game.java" />
         <option value="$PROJECT_DIR$/src/xayb/handler/Input.java" />
+        <option value="$PROJECT_DIR$/src/xayb/Game.java" />
         <option value="$PROJECT_DIR$/src/xayb/GUI/Menu.java" />
       </list>
     </option>
@@ -562,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525337182937</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="add cointype">
+      <created>1525346046297</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1525346046297</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -645,7 +650,8 @@
     <MESSAGE value="Del bottom coin when press F, del coin when touches bottom Fail GUI and Score GUI" />
     <MESSAGE value="Error coin threading. TODO: coinpressed threading" />
     <MESSAGE value="Add coin type" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add coin type" />
+    <MESSAGE value="add cointype" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cointype" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -660,8 +666,8 @@
           <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3833#3834#0" expanded="true" />
-            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
+            <element signature="e#3897#3898#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -672,8 +678,8 @@
           <caret line="14" column="10" lean-forward="false" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3833#3834#0" expanded="true" />
-            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
+            <element signature="e#3897#3898#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -740,8 +746,8 @@
           <caret line="24" column="55" lean-forward="false" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3833#3834#0" expanded="true" />
-            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
+            <element signature="e#3897#3898#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -797,8 +803,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3833#3834#0" expanded="true" />
-            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
+            <element signature="e#3897#3898#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -819,8 +825,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3833#3834#0" expanded="true" />
-            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
+            <element signature="e#3897#3898#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -951,18 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/xayb/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3833#3834#0" expanded="true" />
-            <element signature="e#3859#3860#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/xayb/GUI/Window.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -970,14 +964,6 @@
           <folding>
             <marker date="1525330569817" expanded="true" signature="353:1064" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/xayb/handler/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,10 +989,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/xayb/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="38" column="34" lean-forward="true" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
+            <element signature="e#3897#3898#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/xayb/handler/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/xayb/GUI/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state relative-caret-position="160">
+          <caret line="100" column="32" lean-forward="false" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
           <folding />
         </state>
       </provider>

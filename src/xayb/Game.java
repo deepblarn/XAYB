@@ -20,7 +20,7 @@ public class Game extends Canvas implements Runnable{
     private static BufferedImage image;
     private Graphics g;
     public static ThreadPool pool = new ThreadPool(2);
-    public static Image coin1,coin2,coin3, coin4;
+    public static Image coin1,coin2,coin3, menuimg;
 
 
     // TODO : Add resume and new game features
@@ -37,6 +37,7 @@ public class Game extends Canvas implements Runnable{
         coin1 = getImage("coin1");
         coin2 = getImage("coin2");
         coin3 = getImage("coin3");
+        menuimg = getImage("menu");
 
 
         OS.optimize();

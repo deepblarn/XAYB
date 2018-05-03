@@ -44,19 +44,15 @@ public class Menu extends MouseAdapter {
 
             handler.addObject(new Player(1,1, ID.Player));
 
+            handler.addObject(new HUD(0,0,ID.HUD));
 
             //Ordered by Y
 
 
-            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, 10,-11));
-            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 9, -2));
+            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, 10,-4));
+            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 2, 9, -2));
             handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, 11, -2));
-            handler.addObject(new Coin(Game.WIDTH/2,1000, ID.Coin, 3, 4,-12));
-
-
-
-
-
+            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 4, 4,-8));
 
 
 

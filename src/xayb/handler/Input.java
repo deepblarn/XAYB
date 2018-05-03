@@ -3,6 +3,7 @@ package xayb.handler;
 
 import xayb.Game;
 import xayb.MusicPlayer;
+import xayb.coins.Coin;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -25,13 +26,10 @@ public class Input extends KeyAdapter{
             GameObject tempObj = handler.object.get(i);
 
             if (tempObj.getId() == ID.Player){
-
-                if (key == KeyEvent.VK_S){
-                    coinPressed(ID.Coin);
-                }
-                if (key == KeyEvent.VK_D) coinPressed(ID.Coin);
-                if (key == KeyEvent.VK_A) coinPressed(ID.Coin);
-                if (key == KeyEvent.VK_F) coinPressed(ID.Coin);
+                if (key == KeyEvent.VK_A) coinPressed(1);
+                if (key == KeyEvent.VK_S) coinPressed(2);
+                if (key == KeyEvent.VK_D) coinPressed(3);
+                if (key == KeyEvent.VK_F) coinPressed(4);
 
 
                 if (key == KeyEvent.VK_E){
@@ -57,7 +55,7 @@ public class Input extends KeyAdapter{
     }
 
     // TODO : coinpressed threading
-    public void coinPressed(ID id){
+    public void coinPressed(int type){
         int posy = 0;
         boolean fail = true;
         ArrayList<Integer> alt = new ArrayList<>();
@@ -66,7 +64,7 @@ public class Input extends KeyAdapter{
                 for (int j = 0; j < handler.object.size(); j++) {
                     GameObject tempObj2 = handler.object.get(j);
 
-                    if (tempObj2.getId() == ID.Coin){
+                    if (tempObj2.getId() == ID.Coin && tempObj2.getTypeCoin() == type){
                         posy = tempObj2.getY();
                     }
                 }

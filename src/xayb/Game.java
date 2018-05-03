@@ -37,7 +37,6 @@ public class Game extends Canvas implements Runnable{
         coin1 = getImage("coin1");
         coin2 = getImage("coin2");
         coin3 = getImage("coin3");
-        coin4 = getImage("coin4");
 
 
         OS.optimize();

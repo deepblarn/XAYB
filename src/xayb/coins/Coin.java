@@ -25,10 +25,9 @@ public class Coin extends GameObject {
             this.img = Game.coin2;
         }else if (Coin.type ==3){
             this.img=Game.coin3;
-        }else if (Coin.type == 4){
-            this.img = Game.coin4;
         }
     }
+
 
     @Override
     public void tick() {

@@ -26,16 +26,14 @@ public class Input extends KeyAdapter{
             GameObject tempObj = handler.object.get(i);
 
             if (tempObj.getId() == ID.Player){
-                if (key == KeyEvent.VK_A) coinPressed(1);
-                if (key == KeyEvent.VK_S) coinPressed(2);
-                if (key == KeyEvent.VK_D) coinPressed(3);
-                if (key == KeyEvent.VK_F) coinPressed(4);
+                if (key == KeyEvent.VK_A) coinPressed(1, 27);
+                if (key == KeyEvent.VK_S) coinPressed(2, 48);
+                if (key == KeyEvent.VK_D) coinPressed(3, 88);
 
 
                 if (key == KeyEvent.VK_E){
                     Game.gameState = Game.STATE.Menu;
                     handler.clearObjects();
-
 
                 }
 
@@ -55,7 +53,7 @@ public class Input extends KeyAdapter{
     }
 
     // TODO : coinpressed threading
-    public void coinPressed(int type){
+    public void coinPressed(int type, int punt){
         int posy = 0;
         boolean fail = true;
         ArrayList<Integer> alt = new ArrayList<>();
@@ -66,6 +64,7 @@ public class Input extends KeyAdapter{
 
                     if (tempObj2.getId() == ID.Coin && tempObj2.getTypeCoin() == type){
                         posy = tempObj2.getY();
+                        System.out.println(type);
                     }
                 }
                 for (int k = 0; k < handler.object.size(); k++) {
@@ -73,7 +72,16 @@ public class Input extends KeyAdapter{
 
                     if (tempObj3.getId() == ID.Coin && posy == tempObj3.getY()){
                         handler.removeObject(tempObj3);
+                        MusicPlayer player = new MusicPlayer("NFF-feed-2", false);
+                        pool.addThread(player);
+                        HUD.addScore(punt);
+                        fail=false;
                     }
+                }
+                if (fail){
+                    HUD.addFail();
+                    MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);
+                    pool.addThread(player);
                 }
             }catch (Exception a){
                 a.printStackTrace();

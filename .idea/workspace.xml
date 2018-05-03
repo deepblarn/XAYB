@@ -4,12 +4,6 @@
     <list default="true" id="cc23618f-9ed9-4fb2-a8d7-5abe76866830" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/XAYB/xayb/Game.class" afterPath="$PROJECT_DIR$/out/production/XAYB/xayb/Game.class" />
-      <change beforePath="$PROJECT_DIR$/src/xayb/GUI/Menu.java" afterPath="$PROJECT_DIR$/src/xayb/GUI/Menu.java" />
-      <change beforePath="$PROJECT_DIR$/src/xayb/Game.java" afterPath="$PROJECT_DIR$/src/xayb/Game.java" />
-      <change beforePath="$PROJECT_DIR$/src/xayb/coins/Coin.java" afterPath="$PROJECT_DIR$/src/xayb/coins/Coin.java" />
-      <change beforePath="$PROJECT_DIR$/src/xayb/handler/GameObject.java" afterPath="$PROJECT_DIR$/src/xayb/handler/GameObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/xayb/handler/Handler.java" afterPath="$PROJECT_DIR$/src/xayb/handler/Handler.java" />
-      <change beforePath="$PROJECT_DIR$/src/xayb/handler/Input.java" afterPath="$PROJECT_DIR$/src/xayb/handler/Input.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -553,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525301336112</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add coin type">
+      <created>1525337177927</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1525337177927</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -635,7 +636,8 @@
     <MESSAGE value="Make the coin bounce TODO" />
     <MESSAGE value="Del bottom coin when press F, del coin when touches bottom Fail GUI and Score GUI" />
     <MESSAGE value="Error coin threading. TODO: coinpressed threading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error coin threading. TODO: coinpressed threading" />
+    <MESSAGE value="Add coin type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add coin type" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

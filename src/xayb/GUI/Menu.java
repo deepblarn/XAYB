@@ -10,6 +10,8 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.Comparator;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import static xayb.Game.*;
@@ -17,14 +19,12 @@ import static xayb.Game.*;
 public class Menu extends MouseAdapter {
 
 
-    private Game game;
     private Handler handler;
-    private BufferedImage image;
+    private Timer t;
     public static ThreadPool pool = new ThreadPool(2);
 
 
     public Menu(Game game, Handler handler){
-        this.game = game;
         this.handler = handler;
     }
 
@@ -49,7 +49,7 @@ public class Menu extends MouseAdapter {
             //Change gameState
             gameState = STATE.Game;
             //Clear all objects
-
+            handler.clearObjects();
             //Set score and errors to 0
             HUD.fails = 0;
             HUD.score=0;
@@ -62,12 +62,19 @@ public class Menu extends MouseAdapter {
             //Ordered by Y
 
 
-            for (int i = 0; i < 200; i++) {
-                handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 1, getRandomNumberInRange(10,-10),getRandomNumberInRange(-1,-20)));
-                handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 2, getRandomNumberInRange(10,-10), getRandomNumberInRange(-1,-20)));
-                handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, 3, getRandomNumberInRange(10,-10), getRandomNumberInRange(-1,-20)));
+            if (t == null){
+                t = new Timer();
 
+                t.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < getRandomNumberInRange(5,2); i++) {
+                            handler.addObject(new Coin(Game.WIDTH/2,500, ID.Coin, getRandomNumberInRange(3,1), getRandomNumberInRange(10,-10),getRandomNumberInRange(-1,-10)));
+                        }
+                    }
+                }, 0, 5000);
             }
+
 
 
 

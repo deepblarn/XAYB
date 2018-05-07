@@ -37,7 +37,6 @@ public class Coin extends GameObject {
 
 
         if (y > Game.HEIGHT-75){
-            System.out.println(this);
              Game.handler.removeObject(this);
              HUD.addFail();
              MusicPlayer player = new MusicPlayer("NFF-robo-hit", false);

@@ -11,7 +11,7 @@ public class MusicPlayer implements Runnable{
     private boolean loop;
     public MusicPlayer(String file, boolean loop){
         musicFiles = new ArrayList<String>();
-        musicFiles.add("./src/resources/audio/" + file + ".wav");
+        musicFiles.add("src/resources/audio/" + file + ".wav");
         this.loop = loop;
     }
 

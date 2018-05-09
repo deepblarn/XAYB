@@ -1,19 +1,26 @@
 package xayb.handler;
 
 import xayb.Game;
+import xayb.coins.Coin;
 
 import java.awt.*;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static xayb.Game.gameState;
 
 public class HUD extends GameObject{
 
     public static int fails = 0;
     public static int score = 0;
+    private Timer t;
     public HUD(int x, int y, ID id){
         super(x, y, id);
     }
 
     @Override
     public void tick(){
+
 
     }
 
@@ -23,6 +30,7 @@ public class HUD extends GameObject{
         g.setColor(Color.WHITE);
         g.drawString("Fails: " + fails, 10,20);
         g.drawString("Score: " + score, 10,35);
+        g.drawString("FPS: " + Game.FPS, 10,50);
 
     }
 

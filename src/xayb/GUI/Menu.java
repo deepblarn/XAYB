@@ -24,7 +24,7 @@ public class Menu extends MouseAdapter {
     public static ThreadPool pool = new ThreadPool(2);
 
 
-    public Menu(Game game, Handler handler){
+    public Menu(Handler handler){
         this.handler = handler;
     }
 

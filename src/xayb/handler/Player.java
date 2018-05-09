@@ -1,7 +1,12 @@
 package xayb.handler;
 
 
+import xayb.GUI.GameOver;
+import xayb.Game;
+
 import java.awt.Graphics;
+
+import static xayb.Game.gameState;
 
 public class Player extends GameObject {
 
@@ -13,7 +18,10 @@ public class Player extends GameObject {
     @Override
     public void tick() {
 
-
+        if(HUD.fails == 30){
+            gameState = Game.STATE.GameOver;
+            GameOver.count = 0;
+        }
     }
 
 

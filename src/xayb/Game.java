@@ -1,5 +1,6 @@
 package xayb;
 
+import xayb.GUI.GameOver;
 import xayb.GUI.Menu;
 import xayb.GUI.Window;
 import xayb.handler.*;
@@ -13,21 +14,24 @@ import java.io.IOException;
 
 public class Game extends Canvas implements Runnable{
 
-    public static final int WIDTH = 800, HEIGHT = 800;
+    public static final int WIDTH = 1280, HEIGHT = 720;
     private static boolean running = false;
     public static Handler handler;
     private Menu menu;
+    public static int FPS = 0;
     private static BufferedImage image;
     private Graphics g;
     public static ThreadPool pool = new ThreadPool(2);
-    public static Image coin1,coin2,coin3, menuimg;
+    public static Image coin1,coin2,coin3, menuimg, gameover;
+    private GameOver over;
 
 
     // TODO : Add resume and new game features
 
     public enum STATE {
         Menu,
-        Game
+        Game,
+        GameOver
     }
 
     public static STATE gameState = STATE.Menu;
@@ -38,12 +42,14 @@ public class Game extends Canvas implements Runnable{
         coin2 = getImage("coin2");
         coin3 = getImage("coin3");
         menuimg = getImage("menu");
+        gameover = getImage("over");
 
 
         OS.optimize();
 
         handler = new Handler();
-        menu = new Menu(this, handler);
+        menu = new Menu(handler);
+        over = new GameOver();
 
         this.addKeyListener(new Input(handler));
         this.addMouseListener(menu);
@@ -95,7 +101,7 @@ public class Game extends Canvas implements Runnable{
                 frames++;
                 if (System.currentTimeMillis() - timer > 1000){
                     timer +=1000;
-                    System.out.println("FPS: " + frames);
+                    FPS=frames;
                     frames = 0;
                 }
             }
@@ -111,6 +117,8 @@ public class Game extends Canvas implements Runnable{
             menu.tick();
         } else if (gameState == STATE.Game){
             handler.tick();
+        }else if (gameState == STATE.GameOver){
+            over.tick();
         }
     }
 
@@ -131,7 +139,8 @@ public class Game extends Canvas implements Runnable{
             handler.render(g);
         }else if (gameState == STATE.Menu){
             menu.render(g);
-
+        }else if (gameState == STATE.GameOver){
+            over.render(g);
         }
 
         g.dispose();

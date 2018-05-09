@@ -64,7 +64,6 @@ public class Input extends KeyAdapter{
 
                     if (tempObj2.getId() == ID.Coin && tempObj2.getTypeCoin() == type){
                         posy = tempObj2.getY();
-                        System.out.println(type);
                     }
                 }
                 for (int k = 0; k < handler.object.size(); k++) {

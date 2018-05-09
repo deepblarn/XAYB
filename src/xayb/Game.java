@@ -14,10 +14,12 @@ import java.io.IOException;
 
 public class Game extends Canvas implements Runnable{
 
-    public static final int WIDTH = 1280, HEIGHT = 720;
+
+    public static int WIDTH = 1280, HEIGHT = 720;
     private static boolean running = false;
     public static Handler handler;
     private Menu menu;
+
     public static int FPS = 0;
     private static BufferedImage image;
     private Graphics g;

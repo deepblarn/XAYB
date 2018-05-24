@@ -12,6 +12,7 @@ import java.awt.*;
 public class Window extends Canvas{
 
 
+
     public static ThreadPool pool = new ThreadPool(2);
 
     public Window(int width, int height, String title, Game game){
@@ -43,7 +44,7 @@ public class Window extends Canvas{
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
-                System.out.println("Me tanco");
+                System.out.println("POS Me tanco");
             }
         }));
 

@@ -108,7 +108,6 @@ public class Menu extends MouseAdapter {
 
 
         g.drawImage(Game.menuimg, 0, 0, WIDTH, HEIGHT,null);
-        g.drawRect(WIDTH/2-(int) (WIDTH*0.12), (int) (HEIGHT*0.602), (int) (WIDTH*0.24), (int) (HEIGHT*0.08));
 
 
     }

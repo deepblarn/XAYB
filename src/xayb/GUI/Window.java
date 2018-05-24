@@ -7,7 +7,6 @@ import xayb.handler.ThreadPool;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 
 public class Window extends Canvas{
@@ -41,6 +40,8 @@ public class Window extends Canvas{
 
         pool.addThread(game);
         pool.addThread(player);
+
+
 
     }
 

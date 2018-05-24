@@ -1,11 +1,10 @@
 package xayb.handler;
 
-import java.awt.Graphics;
-import java.util.Comparator;
+import java.awt.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Handler implements Iterable<GameObject>{
+public class Handler{
 
     public LinkedList<GameObject> object = new LinkedList<>();
 
@@ -33,11 +32,6 @@ public class Handler implements Iterable<GameObject>{
 
     public void clearObjects(){
         this.object.clear();
-    }
-
-    @Override
-    public Iterator<GameObject> iterator() {
-        return object.iterator();
     }
 
 

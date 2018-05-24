@@ -4,7 +4,7 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.util.ArrayList;
 
-public class MusicPlayer implements Runnable{
+public class  MusicPlayer implements Runnable{
 
     private ArrayList<String> musicFiles;
     private int curentsongindex;

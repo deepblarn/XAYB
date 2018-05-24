@@ -1,6 +1,7 @@
 package xayb.handler;
 
 
+import xayb.GUI.GameOver;
 import xayb.Game;
 import xayb.MusicPlayer;
 import xayb.coins.Coin;
@@ -10,6 +11,9 @@ import java.awt.event.KeyEvent;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Optional;
+
+import static xayb.Game.gameState;
 
 public class Input extends KeyAdapter{
 
@@ -30,33 +34,40 @@ public class Input extends KeyAdapter{
                 if (key == KeyEvent.VK_S) coinPressed(2, 48);
                 if (key == KeyEvent.VK_D) coinPressed(3, 88);
 
-
-                if (key == KeyEvent.VK_E){
-                    Game.gameState = Game.STATE.Menu;
-                    handler.clearObjects();
-
-                }
-
             }
 
+        }
+        if (key == KeyEvent.VK_E){
+            gameState = Game.STATE.Menu;
+            handler.clearObjects();
+        }
+
+        if (gameState == Game.STATE.GameOver){
+            if (GameOver.text.length()<10 && e.getKeyCode() != KeyEvent.VK_BACK_SPACE && e.getKeyCode() != KeyEvent.VK_SPACE){
+                GameOver.text += e.getKeyChar();
+            }
+
+            if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
+                GameOver.text = removeLastChar(GameOver.text);
+            }
         }
 
         if (key == KeyEvent.VK_ESCAPE) {
             System.exit(1);
         }
 
-
-
-
-
-
+    }
+    public static String removeLastChar(String s) {
+        return Optional.ofNullable(s)
+                .filter(str -> str.length() != 0)
+                .map(str -> str.substring(0, str.length() - 1))
+                .orElse(s);
     }
 
-    // TODO : coinpressed threading
+
     public void coinPressed(int type, int punt){
         int posy = 0;
         boolean fail = true;
-        ArrayList<Integer> alt = new ArrayList<>();
 
             try {
                 for (int j = 0; j < handler.object.size(); j++) {

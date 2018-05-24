@@ -42,8 +42,6 @@ public class Menu extends MouseAdapter {
         int mx = e.getX();
         int my = e.getY();
 
-        // Settings button: Game.WIDTH/2-(int) (Game.WIDTH*0.12), (int) (Game.HEIGHT*0.466), (int) (Game.WIDTH*0.24), (int) (Game.HEIGHT*0.08)
-        // Scores Button : Game.WIDTH/2-(int) (Game.WIDTH*0.12), (int) (Game.HEIGHT*0.602), (int) (Game.WIDTH*0.24), (int) (Game.HEIGHT*0.08)
 
         if (gameState == STATE.Menu && mouseOver(mx, my, WIDTH / 2 - (int) (WIDTH * 0.12), (int) (HEIGHT * 0.33), (int) (WIDTH * 0.24), (int) (HEIGHT * 0.08))){
             //Change gameState
@@ -85,7 +83,11 @@ public class Menu extends MouseAdapter {
 
         }
 
-        if (mouseOver(mx, my, WIDTH/2-(int) (WIDTH*0.12), (int) (HEIGHT*0.738), (int) (WIDTH*0.24), (int) (HEIGHT*0.08))){
+        if (mouseOver(mx,my,WIDTH/2-(int) (WIDTH*0.12), (int) (HEIGHT*0.602), (int) (WIDTH*0.24), (int) (HEIGHT*0.08)) && gameState == STATE.Menu){
+            gameState = STATE.Ranking;
+        }
+
+        if (mouseOver(mx, my, WIDTH/2-(int) (WIDTH*0.12), (int) (HEIGHT*0.738), (int) (WIDTH*0.24), (int) (HEIGHT*0.08)) && gameState == STATE.Menu){
             System.exit(1);
         }
     }
@@ -106,7 +108,7 @@ public class Menu extends MouseAdapter {
 
 
         g.drawImage(Game.menuimg, 0, 0, WIDTH, HEIGHT,null);
-
+        g.drawRect(WIDTH/2-(int) (WIDTH*0.12), (int) (HEIGHT*0.602), (int) (WIDTH*0.24), (int) (HEIGHT*0.08));
 
 
     }

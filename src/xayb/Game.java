@@ -2,6 +2,7 @@ package xayb;
 
 import xayb.GUI.GameOver;
 import xayb.GUI.Menu;
+import xayb.GUI.Ranking;
 import xayb.GUI.Window;
 import xayb.handler.*;
 
@@ -19,21 +20,22 @@ public class Game extends Canvas implements Runnable{
     private static boolean running = false;
     public static Handler handler;
     private Menu menu;
-
+    private Ranking ranking;
     public static int FPS = 0;
     private static BufferedImage image;
     private Graphics g;
     public static ThreadPool pool = new ThreadPool(2);
-    public static Image coin1,coin2,coin3, menuimg, gameover;
+    public static Image coin1,coin2,coin3, menuimg, gameover,gold,silver,bronze;
     private GameOver over;
 
 
-    // TODO : Add resume and new game features
+    // TODO : RANKING AND OPTIONS
 
     public enum STATE {
         Menu,
         Game,
-        GameOver
+        GameOver,
+        Ranking
     }
 
     public static STATE gameState = STATE.Menu;
@@ -45,6 +47,9 @@ public class Game extends Canvas implements Runnable{
         coin3 = getImage("coin3");
         menuimg = getImage("menu");
         gameover = getImage("over");
+        gold = getImage("gold-medal");
+        silver = getImage("silver-medal");
+        bronze = getImage("bronze-medal");
 
 
         OS.optimize();
@@ -52,9 +57,11 @@ public class Game extends Canvas implements Runnable{
         handler = new Handler();
         menu = new Menu(handler);
         over = new GameOver();
+        ranking = new Ranking();
 
         this.addKeyListener(new Input(handler));
         this.addMouseListener(menu);
+        this.addMouseListener(over);
 
         new Window(WIDTH, HEIGHT, "XAYB", this);
         System.out.println(HEIGHT);
@@ -121,6 +128,8 @@ public class Game extends Canvas implements Runnable{
             handler.tick();
         }else if (gameState == STATE.GameOver){
             over.tick();
+        }else if (gameState == STATE.Ranking){
+            ranking.tick();
         }
     }
 
@@ -143,6 +152,10 @@ public class Game extends Canvas implements Runnable{
             menu.render(g);
         }else if (gameState == STATE.GameOver){
             over.render(g);
+        }else if (gameState == STATE.Ranking){
+            g.setColor(Color.black);
+            g.fillRect(0,0, Game.WIDTH, Game.HEIGHT);
+            ranking.render(g);
         }
 
         g.dispose();

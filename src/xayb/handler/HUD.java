@@ -21,12 +21,15 @@ public class HUD extends GameObject{
     @Override
     public void tick(){
 
+        if (fails == 30){
+            gameState = Game.STATE.GameOver;
+        }
 
     }
 
     @Override
     public void render(Graphics g){
-
+        g.setFont(new Font("default", Font.BOLD, 16));
         g.setColor(Color.WHITE);
         g.drawString("Fails: " + fails, 10,20);
         g.drawString("Score: " + score, 10,35);

@@ -37,7 +37,7 @@ public class Input extends KeyAdapter{
             }
 
         }
-        if (key == KeyEvent.VK_E){
+        if (key == KeyEvent.VK_E && gameState != Game.STATE.GameOver){
             gameState = Game.STATE.Menu;
             handler.clearObjects();
         }

@@ -11,10 +11,9 @@ import java.util.*;
 
 import static xayb.Game.*;
 
-public class GameOver extends MouseAdapter {
+public class GameOver extends MouseAdapter implements java.io.Serializable {
 
-    public Map<Integer, String> map = new TreeMap<Integer, String>(new MyComparator());
-    private Timer t;
+    public static Map<Integer, String> map = new TreeMap<Integer, String>(new MyComparator());
     public static int count;
 
     public static String text = "";
@@ -27,9 +26,12 @@ public class GameOver extends MouseAdapter {
         int my = e.getY();
 
         if (mouseOver(mx,my,WIDTH/2-(int)(WIDTH*0.0535), (int) (HEIGHT*0.76), 170, 40) && gameState == STATE.GameOver && submit){
-            map.put(HUD.score,text);
-            System.out.println(map);
-            gameState = STATE.Menu;
+            if (!map.containsValue(text)){
+                map.put(HUD.score,text);
+                gameState = STATE.Menu;
+            }
+
+
         }
     }
 

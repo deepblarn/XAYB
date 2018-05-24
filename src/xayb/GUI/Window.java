@@ -41,6 +41,11 @@ public class Window extends Canvas{
         pool.addThread(game);
         pool.addThread(player);
 
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            public void run() {
+                System.out.println("Me tanco");
+            }
+        }));
 
 
     }

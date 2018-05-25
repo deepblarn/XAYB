@@ -7,19 +7,23 @@ import xayb.handler.HUD;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.Serializable;
 import java.util.*;
 
 import static xayb.Game.*;
 
 public class GameOver extends MouseAdapter implements java.io.Serializable {
 
-    public static Map<Integer, String> map = new TreeMap<Integer, String>(new MyComparator());
+    public static Map map = new TreeMap<Integer, String>(new MyComparator());
     public static int count;
 
     public static String text = "";
 
     private boolean submit = false;
 
+    public void emptyMap(){
+        map.clear();
+    }
 
     public void mousePressed(MouseEvent e) {
         int mx = e.getX();
@@ -67,7 +71,7 @@ public class GameOver extends MouseAdapter implements java.io.Serializable {
 
 }
 
-class MyComparator implements Comparator<Integer> {
+class MyComparator implements Comparator<Integer>, java.io.Serializable {
 
     @Override
     public int compare(Integer first, Integer second) {

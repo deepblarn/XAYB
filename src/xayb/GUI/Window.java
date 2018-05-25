@@ -44,7 +44,9 @@ public class Window extends Canvas{
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
-                System.out.println("POS Me tanco");
+                if (!GameOver.map.isEmpty()){
+                    Game.ser.writeFile(GameOver.map);
+                }
             }
         }));
 

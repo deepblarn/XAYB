@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 public class Game extends Canvas implements Runnable{
@@ -27,7 +28,7 @@ public class Game extends Canvas implements Runnable{
     public static ThreadPool pool = new ThreadPool(2);
     public static Image coin1,coin2,coin3, menuimg, gameover,gold,silver,bronze;
     private GameOver over;
-
+    public static LoadFile ser;
 
     // TODO : RANKING AND OPTIONS
 
@@ -50,6 +51,12 @@ public class Game extends Canvas implements Runnable{
         gold = getImage("gold-medal");
         silver = getImage("silver-medal");
         bronze = getImage("bronze-medal");
+
+        ser = new LoadFile(new File("scores.dat"));
+        if (ser.fileExist()){
+            ser.readFile();
+            GameOver.map = ser.getMapf();
+        }
 
 
         OS.optimize();

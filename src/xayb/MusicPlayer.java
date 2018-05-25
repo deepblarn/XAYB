@@ -39,7 +39,7 @@ public class  MusicPlayer implements Runnable{
             }
 
         }catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 

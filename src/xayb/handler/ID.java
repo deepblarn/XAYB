@@ -4,6 +4,6 @@ public enum ID {
 
     Player(),
     HUD(),
-    Coin();
+    Coin()
 
 }

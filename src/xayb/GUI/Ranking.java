@@ -40,16 +40,16 @@ public class Ranking{
         }
         if (GameOver.map.size()==1){
             g.drawString((String) GameOver.map.values().toArray()[0], WIDTH / 2 - (int) (WIDTH * 0.07), (int) (HEIGHT*0.30625));
-            g.drawString(String.valueOf(getKeyFromValue(GameOver.map,(String) GameOver.map.values().toArray()[0])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.30625));
+            g.drawString(String.valueOf(getKeyFromValue(GameOver.map, GameOver.map.values().toArray()[0])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.30625));
             g.drawString("Nothing", WIDTH / 2 - (int) (WIDTH * 0.07), (int) (HEIGHT*0.49625));
             g.drawString("Nothing", WIDTH / 2 - (int) (WIDTH * 0.07), (int) (HEIGHT*0.66625));
         }
         if (GameOver.map.size()==2){
             g.drawString((String) GameOver.map.values().toArray()[0], WIDTH / 2 - (int) (WIDTH * 0.07), (int) (HEIGHT*0.30625));
-            g.drawString(String.valueOf(getKeyFromValue(GameOver.map,(String) GameOver.map.values().toArray()[0])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.30625));
+            g.drawString(String.valueOf(getKeyFromValue(GameOver.map, GameOver.map.values().toArray()[0])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.30625));
 
             g.drawString((String) GameOver.map.values().toArray()[1], WIDTH / 2 - (int) (WIDTH * 0.07), (int) (HEIGHT*0.49625));
-            g.drawString(String.valueOf(getKeyFromValue(GameOver.map,(String) GameOver.map.values().toArray()[1])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.49625));
+            g.drawString(String.valueOf(getKeyFromValue(GameOver.map, GameOver.map.values().toArray()[1])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.49625));
 
             g.drawString("Nothing", WIDTH / 2 - (int) (WIDTH * 0.07), (int) (HEIGHT*0.66625));
         }
@@ -57,13 +57,13 @@ public class Ranking{
         if (GameOver.map.size()>=3){
 
             g.drawString((String) GameOver.map.values().toArray()[0], WIDTH / 2 - (int) (WIDTH * 0.07), (int) (HEIGHT*0.30625));
-            g.drawString(String.valueOf(getKeyFromValue(GameOver.map,(String) GameOver.map.values().toArray()[0])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.30625));
+            g.drawString(String.valueOf(getKeyFromValue(GameOver.map, GameOver.map.values().toArray()[0])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.30625));
 
             g.drawString((String) GameOver.map.values().toArray()[1], WIDTH / 2 - (int) (WIDTH * 0.07), (int) (HEIGHT*0.49625));
-            g.drawString(String.valueOf(getKeyFromValue(GameOver.map,(String) GameOver.map.values().toArray()[1])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.49625));
+            g.drawString(String.valueOf(getKeyFromValue(GameOver.map, GameOver.map.values().toArray()[1])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.49625));
 
             g.drawString((String) GameOver.map.values().toArray()[2], WIDTH / 2 - (int) (WIDTH * 0.07), (int) (HEIGHT*0.66625));
-            g.drawString(String.valueOf(getKeyFromValue(GameOver.map,(String) GameOver.map.values().toArray()[2])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.66625));
+            g.drawString(String.valueOf(getKeyFromValue(GameOver.map, GameOver.map.values().toArray()[2])), WIDTH / 2 + (int) (WIDTH * 0.08), (int) (HEIGHT*0.66625));
 
         }
 

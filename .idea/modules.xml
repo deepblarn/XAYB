@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/XAYB.iml" filepath="$PROJECT_DIR$/XAYB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xayb.iml" filepath="$PROJECT_DIR$/xayb.iml" />
     </modules>
   </component>
 </project>

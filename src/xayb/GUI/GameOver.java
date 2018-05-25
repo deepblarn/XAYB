@@ -21,9 +21,7 @@ public class GameOver extends MouseAdapter implements java.io.Serializable {
 
     private boolean submit = false;
 
-    public void emptyMap(){
-        map.clear();
-    }
+
 
     public void mousePressed(MouseEvent e) {
         int mx = e.getX();
@@ -31,7 +29,7 @@ public class GameOver extends MouseAdapter implements java.io.Serializable {
 
         if (mouseOver(mx,my,WIDTH/2-(int)(WIDTH*0.0535), (int) (HEIGHT*0.76), 170, 40) && gameState == STATE.GameOver && submit){
             if (!map.containsValue(text)){
-                map.put(HUD.score,text);
+                map.put(HUD.score,text.toUpperCase());
                 gameState = STATE.Menu;
             }
 

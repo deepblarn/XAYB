@@ -18,7 +18,7 @@ public class Player extends GameObject {
     @Override
     public void tick() {
 
-        if(HUD.fails == 30){
+        if(HUD.fails >= 30){
             gameState = Game.STATE.GameOver;
             GameOver.count = 0;
         }

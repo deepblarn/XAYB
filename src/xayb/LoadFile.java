@@ -35,31 +35,19 @@ public class LoadFile{
     }
 
     public void readFile(){
-        try
-        {
+        try{
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
             mapf = (Map) ois.readObject();
             ois.close();
             fis.close();
-        }catch(IOException ioe)
-        {
+        }catch(IOException ioe){
             ioe.printStackTrace();
-            return;
-        }catch(ClassNotFoundException c)
-        {
+        }catch(ClassNotFoundException c){
             System.out.println("Class not found");
             c.printStackTrace();
-            return;
         }
-        System.out.println("Deserialized HashMap..");
-        // Display content using Iterator
-        Set set = mapf.entrySet();
-        for (Object aSet : set) {
-            Map.Entry mentry = (Map.Entry) aSet;
-            System.out.print("key: " + mentry.getKey() + " & Value: ");
-            System.out.println(mentry.getValue());
-        }
+
 
     }
 
@@ -67,7 +55,4 @@ public class LoadFile{
         return mapf;
     }
 
-    public void removeF(){
-        file.delete();
-    }
 }

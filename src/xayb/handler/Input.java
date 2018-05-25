@@ -29,7 +29,7 @@ public class Input extends KeyAdapter{
         for (int i = 0; i < Game.handler.object.size(); i++) {
             GameObject tempObj = handler.object.get(i);
 
-            if (tempObj.getId() == ID.Player){
+            if (tempObj.getId() == ID.Player && gameState == Game.STATE.Game){
                 if (key == KeyEvent.VK_A) coinPressed(1, 27);
                 if (key == KeyEvent.VK_S) coinPressed(2, 48);
                 if (key == KeyEvent.VK_D) coinPressed(3, 88);
@@ -43,7 +43,7 @@ public class Input extends KeyAdapter{
         }
 
         if (gameState == Game.STATE.GameOver){
-            if (GameOver.text.length()<10 && e.getKeyCode() != KeyEvent.VK_BACK_SPACE && e.getKeyCode() != KeyEvent.VK_SPACE){
+            if (GameOver.text.length()<10 && e.getKeyCode() != KeyEvent.VK_BACK_SPACE && e.getKeyCode() != KeyEvent.VK_SPACE && e.getKeyCode() != KeyEvent.VK_SHIFT && e.getKeyCode() != KeyEvent.VK_CAPS_LOCK && e.getKeyCode() != KeyEvent.VK_CONTROL && e.getKeyCode() != KeyEvent.VK_ALT){
                 GameOver.text += e.getKeyChar();
             }
 
@@ -102,19 +102,7 @@ public class Input extends KeyAdapter{
     }
 
     public void keyReleased(KeyEvent e){
-        int key = e.getKeyCode();
-        for (int i = 0; i < handler.object.size(); i++) {
-            GameObject tempObj = handler.object.get(i);
 
-            if (tempObj.getId() == ID.Player){
-
-                if (key == KeyEvent.VK_W) tempObj.setVelY(0);
-                if (key == KeyEvent.VK_S) tempObj.setVelY(0);
-                if (key == KeyEvent.VK_D) tempObj.setVelX(0);
-                if (key == KeyEvent.VK_A) tempObj.setVelX(0);
-            }
-
-        }
     }
 
 

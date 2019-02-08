@@ -2,6 +2,8 @@
 
 __Making a game for a project in my school__
 
+The controls are ASD
+
 The main pourpose of this game is learning, youre free to download modify and redistribute this code without selling it.
 
 # What did i learn in this project:

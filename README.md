@@ -4,13 +4,9 @@ __Making a game for a project in my school__
 
 The main pourpose of this game is learning, youre free to download modify and redistribute this code without selling it.
 
-## Features actually in the game:
-- Canvas
-- Error limit
-- Function to rise the points 
-
-__Planned features__
-- Voxel Art style
-- Menu with resolution, refresh rate and ranking
-- Animated background and UI
-- Support for controller
+# What did i learn in this project:
+- How to use java AWT
+- How to define a game logic with interfaces and abstract classes
+- How to use design patterns
+- Image displaying in canvas
+- Render logic
